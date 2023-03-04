@@ -1,13 +1,15 @@
 // if1.rs
 // Execute `rustlings hint if1` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
 
 pub fn bigger(a: i32, b: i32) -> i32 {
     // Complete this function to return the bigger number!
     // Do not use:
     // - another function call
     // - additional variables
+    // Important Note: If/Else is an expression not a statment i.e. no need for semi colon to
+    // return value. Can be used as an assignment, there is no ternary operator though.
+    if a > b {a} else {b}
 }
 
 // Don't mind this for now :)
