@@ -4,13 +4,27 @@
 // Make me compile and pass the test!
 // Execute `rustlings hint vecs1` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
+const a : [i32; 4] = [10, 20, 30, 40];
 
-fn array_and_vec() -> ([i32; 4], Vec<i32>) {
-    let a = [10, 20, 30, 40]; // a plain array
-    let v = // TODO: declare your vector here with the macro for vectors
+// Three Options. 
+fn array_and_vec_1() -> Vec<i32> {
+    // 1: Define In-line
+    vec![a[0], a[1], a[2], a[3]]
+}
 
-    (a, v)
+fn array_and_vec_2() -> Vec<i32> {
+    // 2: Define empty and push elements
+    let mut v = Vec::new();
+    v.push(a[0]);
+    v.push(a[1]);
+    v.push(a[2]);
+    v.push(a[3]);
+    v
+}
+
+fn array_and_vec_3() -> Vec<i32> {
+    // 3: Define from a slice (array can be treated as a slice)
+    a.to_vec()
 }
 
 #[cfg(test)]
@@ -19,7 +33,11 @@ mod tests {
 
     #[test]
     fn test_array_and_vec_similarity() {
-        let (a, v) = array_and_vec();
+        let v = array_and_vec_1();
+        assert_eq!(a, v[..]);
+        let v = array_and_vec_2();
+        assert_eq!(a, v[..]);
+        let v = array_and_vec_3();
         assert_eq!(a, v[..]);
     }
 }
